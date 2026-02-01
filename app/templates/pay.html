@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Natijaga bir qadam</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <main class="container">
+    <a class="back" href="/start">← Orqaga</a>
+
+    <h1>Natijaga bir qadam</h1>
+    <p class="sub">
+      Hozirgacha kiritgan ma’lumotlaringiz asosida natijani ko‘rsatishga tayyormiz.
+      Xohlasangiz, shu yerda davom etamiz.
+    </p>
+
+    <div class="card">
+      <div class="row between">
+        <div>
+          <div class="muted">Natijani ko‘rish</div>
+          <div class="price">Bir martalik kichik to‘lov — {{ amount }} so‘m</div>
+        </div>
+        <div class="chip">Demo</div>
+      </div>
+
+      <ul class="list">
+        <li>✅ 12 savol asosida tayyorlangan xulosa</li>
+        <li>✅ Sevganingiz sizdan nimani kutayotganini tushunishga yordam beradi</li>
+        <li>✅ Burjlar o‘rtasidagi umumiy moslik (qo‘shimcha signal sifatida)</li>
+      </ul>
+
+      <form method="post" action="/pay/{{ session.id }}">
+        <button class="btn pay" type="submit">✨ Natijani ko‘rish</button>
+      </form>
+
+      <p class="hint">
+        Hozircha demo rejim: tugmani bossangiz, keyingi bosqichga o‘tasiz.
+        (Keyin Payme/Click ulaymiz.)
+      </p>
+    </div>
+  </main>
+</body>
+</html>

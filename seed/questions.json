@@ -1,0 +1,98 @@
+[
+  {
+    "text": "Unga yoqadigan eng oddiy narsa qaysi?",
+    "option_a": "Kutilmagan iliq so‘z va e’tibor",
+    "option_b": "Amalda yordam: ishini yengillashtirish",
+    "tag": "care",
+    "a_score": 2,
+    "b_score": 2
+  },
+  {
+    "text": "U xafa bo‘lsa, ko‘proq nimani kutadi?",
+    "option_a": "Meni tushun, gapimni bo‘lma",
+    "option_b": "Ye­chim topaylik, amaliy qadam qilaylik",
+    "tag": "attention",
+    "a_score": 2,
+    "b_score": 2
+  },
+  {
+    "text": "Munozarada u nimani qadrlaydi?",
+    "option_a": "Hurmat bilan gaplashishni",
+    "option_b": "To‘g‘ridan-to‘g‘ri, aniq gapni",
+    "tag": "respect",
+    "a_score": 2,
+    "b_score": 2
+  },
+  {
+    "text": "Unga ko‘proq yoqadigan uchrashuv qanday?",
+    "option_a": "Romantik muhit, yengil suhbat",
+    "option_b": "Mazmunli reja: birga foydali ish qilish",
+    "tag": "romance",
+    "a_score": 2,
+    "b_score": 2
+  },
+  {
+    "text": "Uning sevgini qabul qilishi ko‘proq nimada bilinadi?",
+    "option_a": "E’tibor va vaqt: birga bo‘lish",
+    "option_b": "G‘amxo‘rlik: yordam va mas’uliyat",
+    "tag": "care",
+    "a_score": 2,
+    "b_score": 2
+  },
+  {
+    "text": "Unga bosim qilinsa nima bo‘ladi?",
+    "option_a": "Ichiga yutadi, xafa bo‘ladi",
+    "option_b": "Jahl bilan javob qaytarishi mumkin",
+    "tag": "trust",
+    "a_score": 2,
+    "b_score": 2
+  },
+  {
+    "text": "U ko‘proq nimani xohlaydi?",
+    "option_a": "Ko‘proq mehr va iliqlik",
+    "option_b": "Ko‘proq erkinlik va shaxsiy hudud",
+    "tag": "space",
+    "a_score": 2,
+    "b_score": 2
+  },
+  {
+    "text": "Siz band bo‘lsangiz, u qanday reaksiya qiladi?",
+    "option_a": "Xafa bo‘lib, e’tibor yetishmaydi deydi",
+    "option_b": "Tushunadi, lekin vaqtni aniq belgilashni xohlaydi",
+    "tag": "attention",
+    "a_score": 2,
+    "b_score": 2
+  },
+  {
+    "text": "Unga ishonch beradigan narsa qaysi?",
+    "option_a": "Doimiy yozishish, aloqada bo‘lish",
+    "option_b": "Va’daga sodiqlik: aytilgan ish bajarilishi",
+    "tag": "trust",
+    "a_score": 2,
+    "b_score": 2
+  },
+  {
+    "text": "Unga sovg‘a tanlashda qaysi yo‘l yaxshiroq?",
+    "option_a": "Ramziy: hisli, ma’noli sovg‘a",
+    "option_b": "Amaliy: kerak bo‘ladigan sovg‘a",
+    "tag": "romance",
+    "a_score": 2,
+    "b_score": 2
+  },
+  {
+    "text": "U janjaldan keyin nimani kutadi?",
+    "option_a": "Iliq yarashish, bag‘rikenglik",
+    "option_b": "Aniq gap: xato qayerda, kelishuv qanday",
+    "tag": "respect",
+    "a_score": 2,
+    "b_score": 2
+  },
+  {
+    "text": "U sizdan nimani ko‘proq eshitishni xohlaydi?",
+    "option_a": "“Men seni qadrlayman, sen men uchun muhim”",
+    "option_b": "“Men senga ishonaman, yoningdaman”",
+    "tag": "care",
+    "a_score": 2,
+    "b_score": 2
+  }
+]

@@ -1,0 +1,29 @@
+<h2>Taklif tayyor ✅</h2>
+<p>{{ invite.boy_name }} uchun link:</p>
+
+<div style="display:flex; gap:8px; max-width:500px;">
+  <input id="inviteLink"
+         value="{{ girl_link }}"
+         readonly
+         style="flex:1; padding:8px;" />
+  <button onclick="copyLink()">Nusxa olish</button>
+</div>
+
+<p style="margin-top:10px;">
+  Shu linkni qizga yuboring. U ma'lumot kiritib, savollarga javob beradi.
+</p>
+<a href="https://t.me/share/url?url={{ girl_link }}&text=Men seni yaxshiroq tushunish uchun kichkina savolnoma yuboryapman 🧡"
+   target="_blank"
+   style="display:inline-block; margin-top:15px;">
+  📩 Telegramda yuborish
+</a>
+
+<script>
+function copyLink() {
+  const el = document.getElementById("inviteLink");
+  el.select();
+  el.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(el.value);
+  alert("Link nusxalandi!");
+}
+</script>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Sevganingiz haqida</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <main class="container">
+    <a class="back" href="/pay/{{ session.id }}">← Orqaga</a>
+
+    <h1>Endi sevganingiz haqida</h1>
+    <p class="sub">
+      Bu ma’lumotlar faqat natijani mosroq qilish uchun.
+      Qisqa yozing — yetarli.
+    </p>
+
+    <form class="card" method="post" action="/girl/{{ session.id }}">
+      <label class="label">Ismi</label>
+      <input class="input" name="girl_name" placeholder="Masalan: Dilnoza" required>
+
+      <label class="label">Yoshi</label>
+      <input class="input" type="number" name="girl_age" min="14" max="99" placeholder="Masalan: 22" required>
+
+      <label class="label">Burji</label>
+      <select class="input" name="girl_zodiac" required>
+        <option value="" selected disabled>Tanlang</option>
+        <option>Qo‘y</option><option>Buzoq</option><option>Egizaklar</option><option>Qisqichbaqa</option>
+        <option>Arslon</option><option>Parizod</option><option>Tarozi</option><option>Chayon</option>
+        <option>O‘qotar</option><option>Echki</option><option>Qovg‘a</option><option>Baliq</option>
+      </select>
+
+      <button class="btn" type="submit">Savollarga o‘tamiz →</button>
+    </form>
+
+    <p class="hint">💛 Bunda “to‘g‘ri/noto‘g‘ri” yo‘q. Shunchaki hislar tili.</p>
+  </main>
+</body>
+</html>

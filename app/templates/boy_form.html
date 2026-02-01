@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Boshlanish</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <main class="container">
+    <a class="back" href="/">← Orqaga</a>
+
+    <h1>Keling, sizdan boshlaymiz</h1>
+    <p class="sub">
+      Xotirjam. Bu yerda hech kim baholamaydi.
+      Faqat natijani sizga mosroq qilish uchun bir nechta mayda ma’lumot.
+    </p>
+
+    <form class="card" method="post" action="/start">
+      <label class="label">Ismingiz</label>
+      <input class="input" name="boy_name" placeholder="Masalan: Akbar" required>
+
+      <label class="label">Yoshingiz</label>
+      <input class="input" type="number" name="boy_age" min="14" max="99" placeholder="Masalan: 24" required>
+
+      <label class="label">Burjingiz</label>
+      <select class="input" name="boy_zodiac" required>
+        <option value="" selected disabled>Tanlang</option>
+        <option>Qo‘y</option><option>Buzoq</option><option>Egizaklar</option><option>Qisqichbaqa</option>
+        <option>Arslon</option><option>Parizod</option><option>Tarozi</option><option>Chayon</option>
+        <option>O‘qotar</option><option>Echki</option><option>Qovg‘a</option><option>Baliq</option>
+      </select>
+
+      <button class="btn" type="submit">Davom etamiz →</button>
+    </form>
+
+    <p class="hint">💡 Xohlasangiz, keyin natijani faqat o‘zingiz ko‘rasiz. Yuborish majburiy emas.</p>
+  </main>
+</body>
+</html>
+
+

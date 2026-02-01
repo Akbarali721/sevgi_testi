@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Yengil savollar</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <main class="container">
+
+    <!-- Orqaga: qiz ma'lumot sahifasiga -->
+    <a class="back" href="/girl/{{ invite.token }}">← Orqaga</a>
+
+    <h1>Yengil savollar</h1>
+    <p class="sub">
+      Har savolda A yoki B ni tanlang.
+      Ko‘p o‘ylamasdan — birinchi sezgi ko‘pincha to‘g‘ri chiqadi.
+    </p>
+
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <!-- POST endi /i/{token} -->
+    <form class="card" method="post" action="/i/{{ invite.token }}">
+      {% for q in questions %}
+        <div class="qbox">
+          <div class="qtext">{{ loop.index }}. {{ q.text }}</div>
+
+          <label class="opt">
+            <input type="radio" name="q_{{ q.id }}" value="A" required>
+            <span>{{ q.option_a }}</span>
+          </label>
+
+          <label class="opt">
+            <input type="radio" name="q_{{ q.id }}" value="B" required>
+            <span>{{ q.option_b }}</span>
+          </label>
+        </div>
+      {% endfor %}
+
+      <button class="btn pay" type="submit">
+        Natijani ko‘ramiz →
+      </button>
+    </form>
+
+    <p class="hint">
+      ✨ Bu savollar munosabatni “yaxshiroq tushunish” uchun. Hukm emas.
+    </p>
+  </main>
+</body>
+</html>

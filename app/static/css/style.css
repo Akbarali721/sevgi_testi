@@ -1,0 +1,32 @@
+:root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+body { margin: 0; background: #0b0f14; color: #e8edf2; }
+.container { max-width: 560px; margin: 0 auto; padding: 22px; }
+h1 { font-size: 30px; margin: 8px 0; }
+h2 { font-size: 18px; margin: 0 0 10px; }
+.sub { color: #b7c1cc; line-height: 1.5; margin-top: 6px; }
+.hint { color: #9fb0c1; line-height: 1.5; margin-top: 14px; font-size: 13px; }
+.card { background: #0f1620; border: 1px solid #2a3a4d; border-radius: 18px; padding: 16px; margin: 14px 0; }
+.btn { display: block; text-align: center; text-decoration: none; padding: 14px; border-radius: 14px;
+  background: #1a2330; border: 1px solid #2a3a4d; color: #e8edf2; font-weight: 700; }
+.btn:hover { filter: brightness(1.07); }
+.secondary { background: #141b24; }
+.pay { background: #22324a; border-color: #324b71; }
+.back { color: #b7c1cc; text-decoration: none; display: inline-block; margin-bottom: 10px; }
+.label { display:block; margin: 10px 0 6px; color:#b7c1cc; font-size: 13px; }
+.input { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #2a3a4d; background: #0b0f14; color: #e8edf2; }
+.list { margin: 10px 0 0 18px; color: #cdd6df; }
+.brand { display:flex; gap: 12px; align-items: center; }
+.logo { width: 46px; height: 46px; border-radius: 14px; background: #1a2330; display:flex; align-items:center; justify-content:center; font-size: 22px; border: 1px solid #2a3a4d; }
+.row { display:flex; gap: 10px; align-items:center; }
+.between { justify-content: space-between; }
+.price { font-size: 22px; font-weight: 800; margin-top: 6px; }
+.chip { font-size: 12px; padding: 6px 10px; border-radius: 999px; border: 1px solid #2a3a4d; color:#b7c1cc; }
+.qbox { padding: 12px; border: 1px solid #2a3a4d; border-radius: 14px; margin: 10px 0; background: #0b0f14; }
+.qtext { font-weight: 800; margin-bottom: 10px; }
+.opt { display:flex; gap: 10px; padding: 10px; border-radius: 12px; border: 1px solid #2a3a4d; margin: 8px 0; cursor: pointer; }
+.opt input { margin-top: 3px; }
+.text { line-height: 1.6; }
+.bullets { margin-top: 10px; display: grid; gap: 8px; }
+.bullet { padding: 10px; border-radius: 12px; border: 1px solid #2a3a4d; background: #0b0f14; }
+.score { font-weight: 900; font-size: 18px; }
+.muted { color:#b7c1cc; font-size: 13px; }

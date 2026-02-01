@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Natija</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <main class="container">
+    <a class="back" href="/">← Bosh sahifa</a>
+
+    <h1>Muloyim xulosa</h1>
+    <p class="sub">
+      {{ session.boy_name }} ({{ session.boy_zodiac }}) ↔
+      {{ session.girl_name }} ({{ session.girl_zodiac }})
+    </p>
+
+    <div class="card">
+      <h2>U ko‘proq nimani kutishi mumkin?</h2>
+      <p class="text">{{ profile.summary }}</p>
+
+      {% if profile.bullets and profile.bullets|length > 0 %}
+        <div class="bullets">
+          {% for b in profile.bullets %}
+            <div class="bullet">{{ b | safe }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <p class="hint">
+        💛 Buni “aniq haqiqat” emas, “yo‘l ko‘rsatkich” deb oling.
+        Eng kuchli narsa — muloqot va e’tibor.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Burj mosligi</h2>
+      {% if zodiac.score %}
+        <div class="row between">
+          <div class="muted">Umumiy moslik</div>
+          <div class="score">{{ zodiac.score }} / 100</div>
+        </div>
+      {% endif %}
+      <p class="text">{{ zodiac.text }}</p>
+      <p class="hint">🌙 Bu ham qo‘shimcha signal xolos. Muhimi — munosabatdagi odatlar va hurmat.</p>
+    </div>
+
+    <div class="card">
+      <h2>Yurakka yaqin surpriz g‘oyasi</h2>
+      <p class="text">
+        Natijaga qarab kichkina ish qiling: iliq xabar, e’tiborli savol,
+        yoki uning yoqtirgan narsasidan mayda sovg‘a.
+        Kattasi shart emas — samimiyligi muhim.
+      </p>
+
+      <a class="btn secondary" id="shareBtn" href="#">📤 Telegram orqali yuborish</a>
+      <a class="btn" href="/start">Yana bir marta sinab ko‘ramiz</a>
+    </div>
+  </main>
+
+  <script>
+    const btn = document.getElementById("shareBtn");
+    if (btn) {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const url = window.location.href;
+        const text = "Sevgi testi natijasi (muloyim xulosa). Ko‘rib chiq: ";
+        const tg = "https://t.me/share/url?url=" + encodeURIComponent(url) + "&text=" + encodeURIComponent(text);
+        window.open(tg, "_blank");
+      });
+    }
+  </script>
+</body>
+</html>
