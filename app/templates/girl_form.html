@@ -8,7 +8,8 @@
 </head>
 <body>
   <main class="container">
-    <a class="back" href="/pay/{{ session.id }}">← Orqaga</a>
+
+    <a class="back" href="/start">← Orqaga</a>
 
     <h1>Endi sevganingiz haqida</h1>
     <p class="sub">
@@ -16,7 +17,7 @@
       Qisqa yozing — yetarli.
     </p>
 
-    <form class="card" method="post" action="/girl/{{ session.id }}">
+    <form class="card" method="post" action="/girl/{{ invite.token }}">
       <label class="label">Ismi</label>
       <input class="input" name="girl_name" placeholder="Masalan: Dilnoza" required>
 
@@ -26,15 +27,25 @@
       <label class="label">Burji</label>
       <select class="input" name="girl_zodiac" required>
         <option value="" selected disabled>Tanlang</option>
-        <option>Qo‘y</option><option>Buzoq</option><option>Egizaklar</option><option>Qisqichbaqa</option>
-        <option>Arslon</option><option>Parizod</option><option>Tarozi</option><option>Chayon</option>
-        <option>O‘qotar</option><option>Echki</option><option>Qovg‘a</option><option>Baliq</option>
+        <option>Qo‘y</option>
+        <option>Buzoq</option>
+        <option>Egizaklar</option>
+        <option>Qisqichbaqa</option>
+        <option>Arslon</option>
+        <option>Parizod</option>
+        <option>Tarozi</option>
+        <option>Chayon</option>
+        <option>O‘qotar</option>
+        <option>Echki</option>
+        <option>Qovg‘a</option>
+        <option>Baliq</option>
       </select>
 
       <button class="btn" type="submit">Savollarga o‘tamiz →</button>
     </form>
 
     <p class="hint">💛 Bunda “to‘g‘ri/noto‘g‘ri” yo‘q. Shunchaki hislar tili.</p>
+
   </main>
 </body>
 </html>

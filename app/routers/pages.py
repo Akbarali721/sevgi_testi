@@ -9,8 +9,10 @@ from sqlalchemy.orm import Session
 from app.db.database import get_db
 from app.services.invite_service import CreateInviteDTO
 from app.services import invite_service
-from app.services import quiz_service
 from app.services.zodiac_service import zodiac_compatibility
+
+# ✅ Yangi: 2-blokli profil generator
+from app.profiles import get_profile  # yoki get_profile_dict
 
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
@@ -48,8 +50,6 @@ def boy_submit(
     )
 
     # User1 ga "share link" sahifa chiqaramiz (linkni qizga yuboradi)
-    # Bu sahifani sen templates/share.html qilib qo'yishing mumkin.
-    # Hozircha minimal: girl formga olib boramiz (yoki share page).
     return RedirectResponse(url=f"/share/{inv.token}", status_code=303)
 
 
@@ -59,11 +59,7 @@ def share_page(request: Request, token: str, db: Session = Depends(get_db)):
     inv = invite_service.get_invite_by_token_or_404(db, token)
 
     # Qizga yuboriladigan link:
-    # 1) Qiz avval o'z ma'lumotini kiritadi -> /girl/{token}
     girl_link = f"/girl/{token}"
-
-    # 2) Agar xohlasang qizni to'g'ridan-to'g'ri quizga ham tushirish mumkin:
-    # quiz_link = f"/i/{token}"
 
     return templates.TemplateResponse(
         "share.html",
@@ -108,8 +104,8 @@ def girl_submit(
 def result(request: Request, token: str, db: Session = Depends(get_db)):
     inv = invite_service.get_invite_by_token_or_404(db, token)
 
-    # Javoblar asosida muloyim xulosa
-    profile = quiz_service.get_profile_for_invite(db, token)
+    # ✅ Yangi: 2 ta blokli natija (romantika + ishonch/amal)
+    profile = get_profile(inv.boy_zodiac, inv.girl_zodiac or "")
 
     # Burj mosligi (boy_zodiac + girl_zodiac)
     z = zodiac_compatibility(inv.boy_zodiac, inv.girl_zodiac or "")
@@ -118,7 +114,7 @@ def result(request: Request, token: str, db: Session = Depends(get_db)):
         "result.html",
         {
             "request": request,
-            "invite": inv,     # oldingi "session" o'rniga "invite"
+            "invite": inv,  # oldingi "session" o'rniga "invite"
             "profile": profile,
             "zodiac": z,
         },

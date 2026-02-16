@@ -10,19 +10,20 @@
   <main class="container">
     <a class="back" href="/">← Bosh sahifa</a>
 
-    <h1>Muloyim xulosa</h1>
+    <h1>{{ profile.block1.title }}</h1>
     <p class="sub">
-      {{ session.boy_name }} ({{ session.boy_zodiac }}) ↔
-      {{ session.girl_name }} ({{ session.girl_zodiac }})
+      {{ invite.boy_name }} ({{ invite.boy_zodiac }}) ↔
+      {{ invite.girl_name }} ({{ invite.girl_zodiac }})
     </p>
 
+    <!-- BLOCK 1 -->
     <div class="card">
-      <h2>U ko‘proq nimani kutishi mumkin?</h2>
-      <p class="text">{{ profile.summary }}</p>
+      <h2>{{ profile.block1.title }}</h2>
+      <p class="text">{{ profile.block1.text }}</p>
 
-      {% if profile.bullets and profile.bullets|length > 0 %}
+      {% if profile.block1.bullets and profile.block1.bullets|length > 0 %}
         <div class="bullets">
-          {% for b in profile.bullets %}
+          {% for b in profile.block1.bullets %}
             <div class="bullet">{{ b | safe }}</div>
           {% endfor %}
         </div>
@@ -34,6 +35,26 @@
       </p>
     </div>
 
+    <!-- BLOCK 2 -->
+    <div class="card">
+      <h2>{{ profile.block2.title }}</h2>
+      <p class="text">{{ profile.block2.text }}</p>
+
+      {% if profile.block2.bullets and profile.block2.bullets|length > 0 %}
+        <div class="bullets">
+          {% for b in profile.block2.bullets %}
+            <div class="bullet">{{ b | safe }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <p class="hint">
+        🤍 Bu yerda maqsad — sizga ishonch berish: vaziyatni muloyim ushlab turish va
+        aniq qadam bilan harakat qilish.
+      </p>
+    </div>
+
+    <!-- ZODIAC -->
     <div class="card">
       <h2>Burj mosligi</h2>
       {% if zodiac.score %}
@@ -46,6 +67,7 @@
       <p class="hint">🌙 Bu ham qo‘shimcha signal xolos. Muhimi — munosabatdagi odatlar va hurmat.</p>
     </div>
 
+    <!-- CTA -->
     <div class="card">
       <h2>Yurakka yaqin surpriz g‘oyasi</h2>
       <p class="text">
@@ -65,7 +87,7 @@
       btn.addEventListener("click", (e) => {
         e.preventDefault();
         const url = window.location.href;
-        const text = "Sevgi testi natijasi (muloyim xulosa). Ko‘rib chiq: ";
+        const text = "Sevgi testi natijasi. Ko‘rib chiq: ";
         const tg = "https://t.me/share/url?url=" + encodeURIComponent(url) + "&text=" + encodeURIComponent(text);
         window.open(tg, "_blank");
       });

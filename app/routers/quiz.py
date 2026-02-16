@@ -14,16 +14,16 @@ templates = Jinja2Templates(directory="app/templates")
 
 @router.get("/i/{token}", response_class=HTMLResponse)
 def quiz_page(request: Request, token: str, db: Session = Depends(get_db)):
-    # invite ni ochilgan deb belgilab qo'yamiz (created/paid -> opened)
     inv = open_invite(db, token)
 
     questions = quiz_service.get_quiz_questions(db)
+    print("QUESTIONS COUNT =", len(questions))
 
-    # templates/quiz.html ichida session emas, invite ishlatamiz
     return templates.TemplateResponse(
         "quiz.html",
         {"request": request, "invite": inv, "questions": questions}
     )
+
 
 
 @router.post("/i/{token}")
