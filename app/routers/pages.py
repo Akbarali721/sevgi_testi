@@ -17,6 +17,9 @@ from app.profiles import get_profile  # yoki get_profile_dict
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
 
+# ✅ PROD domen (hozir Render)
+BASE_URL = "https://sevgi-testi-7jd2.onrender.com"
+
 
 @router.get("/", response_class=HTMLResponse)
 def index(request: Request):
@@ -58,8 +61,8 @@ def boy_submit(
 def share_page(request: Request, token: str, db: Session = Depends(get_db)):
     inv = invite_service.get_invite_by_token_or_404(db, token)
 
-    # Qizga yuboriladigan link:
-    girl_link = f"/girl/{token}"
+    # ✅ Qizga yuboriladigan to‘liq link (absolute)
+    girl_link = f"{BASE_URL}/girl/{token}"
 
     return templates.TemplateResponse(
         "share.html",
@@ -75,7 +78,10 @@ def share_page(request: Request, token: str, db: Session = Depends(get_db)):
 @router.get("/girl/{token}", response_class=HTMLResponse)
 def girl_form(request: Request, token: str, db: Session = Depends(get_db)):
     inv = invite_service.get_invite_by_token_or_404(db, token)
-    return templates.TemplateResponse("girl_form.html", {"request": request, "invite": inv})
+    return templates.TemplateResponse(
+        "girl_form.html",
+        {"request": request, "invite": inv},
+    )
 
 
 @router.post("/girl/{token}")
@@ -95,7 +101,7 @@ def girl_submit(
         girl_zodiac=girl_zodiac,
     )
 
-    # Qiz endi quizga o'tadi (bizda router/quiz.py: GET /i/{token})
+    # Qiz endi quizga o'tadi (router/quiz.py: GET /i/{token})
     return RedirectResponse(url=f"/i/{token}", status_code=303)
 
 

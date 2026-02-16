@@ -11,6 +11,9 @@ from app.services.invite_service import open_invite, get_invite_by_token_or_404
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
 
+# ✅ PROD domen (Render)
+BASE_URL = "https://sevgi-testi-7jd2.onrender.com"
+
 
 @router.get("/i/{token}", response_class=HTMLResponse)
 def quiz_page(request: Request, token: str, db: Session = Depends(get_db)):
@@ -21,9 +24,8 @@ def quiz_page(request: Request, token: str, db: Session = Depends(get_db)):
 
     return templates.TemplateResponse(
         "quiz.html",
-        {"request": request, "invite": inv, "questions": questions}
+        {"request": request, "invite": inv, "questions": questions},
     )
-
 
 
 @router.post("/i/{token}")
@@ -38,8 +40,11 @@ async def quiz_submit(request: Request, token: str, db: Session = Depends(get_db
         questions = quiz_service.get_quiz_questions(db)
         return templates.TemplateResponse(
             "quiz.html",
-            {"request": request, "invite": inv, "questions": questions, "error": str(e)}
+            {"request": request, "invite": inv, "questions": questions, "error": str(e)},
         )
 
-    # natija sahifasi token bilan ochiladi (result routerda shu url bo'lishi kerak)
-    return RedirectResponse(url=f"/result/{token}", status_code=303)
+    # ✅ Natija faqat yigitga boradi — shuning uchun link to‘liq bo‘lsin
+    return RedirectResponse(
+        url=f"{BASE_URL}/result/{token}",
+        status_code=303,
+    )
